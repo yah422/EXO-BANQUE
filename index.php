@@ -1,7 +1,7 @@
 <?php 
 
 require("CompteBancaire.php");
-require("TitulaireUnique.php");
+require("Titulaire.php");
 
-$personne1 = new TitulaireUnique();
-echo  $personne1 -> afficherInfos("Saidi","Asma","13-06-2001","Strasbourg");
+$personne1 = new Titulaire("SAIDI", "Asma", "Strasbourg","3","13-06-01");
+echo  $personne1 -> afficherInfos();

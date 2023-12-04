@@ -4,7 +4,8 @@ class CompteBancaire{
     private string $libellé;
     private int $soldeInitial;
     private int $deviseMonetaire;
-    private string $titulaireUnique;
+    private $titulaire;
+
 
 // ------------------ GET ET SET DU LIBELLEE ----------------------
 
@@ -44,22 +45,24 @@ class CompteBancaire{
     }
 // ------------------ GET ET SET DU TITULAIRE UNIQUE ----------------------
 
-    public function getTitulaireUnique()
+    public function getTitulaire()
     {
-        return $this->titulaireUnique;
+        return $this->titulaire;
     }
-    public function setTitulaireUnique($titulaireUnique)
+    public function setTitulaire($titulaire)
     {
-        $this->titulaireUnique = $titulaireUnique;
+        $this->titulaire = $titulaire;
 
         return $this;
     }
 
-    public function __construct ($libellé, $soldeInitial, $deviseMonetaire, $titulaireUnique){
+    public function __construct ($libellé, $soldeInitial, $deviseMonetaire, $titulaire){
         $this -> libellé = $libellé;
         $this -> soldeInitial = $soldeInitial;
         $this -> deviseMonetaire = $deviseMonetaire;
-        $this -> titulaireUnique = $titulaireUnique;
+        $this -> titulaire = $titulaire;
+        $this -> titulaire -> addCompte($this);
+
 
     }
 }

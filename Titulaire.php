@@ -1,11 +1,22 @@
 <?php
 
-class TitulaireUnique{
+class Titulaire{
     private string $nom;
     private string $prenom;
     private string $ville;
     private string $toutlescomptes;
-    private int $dateNaissance;
+    private string $dateNaissance;
+    private $titulaires;
+
+    public function __construct($nom,$prenom,$ville,$toutlescomptes,$dateNaissance){
+        $this -> nom = $nom;
+        $this -> prenom = $prenom;
+        $this -> ville = $ville;
+        $this -> toutlescomptes = $toutlescomptes;
+        $this -> dateNaissance = $dateNaissance;
+        $this -> titulaires = [];
+        
+    }
 
 
     public function getcalculerAge() {
@@ -71,10 +82,14 @@ class TitulaireUnique{
 
         return $this;
     } 
- 
-    public function afficherInfos($nom,$prenom,$dateNaissance,$ville){
-        echo "Nom : $nom <br> Prénom : $prenom <br> Date de naissance : $dateNaissance <br> Ville : $ville <br> ";
+// ------------------------- METHODE ADDCOMPTE ---------------------
+    public function addCompte($titulaire){
+        $this -> titulaires[] = $titulaire;
 
+    }
+ 
+    public function afficherInfos(){
+        echo "Nom : $this->nom <br> Prénom : $this->prenom <br> Ville : $this->ville <br>  Ensemble des comptes : $this->toutlescomptes <br> Date de naissance : $this->dateNaissance";
     }
 
 }
